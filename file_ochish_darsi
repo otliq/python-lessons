@@ -1,0 +1,65 @@
+																File ga yozish
+
+with open(faylnomi,'a') as fayl:
+    fayl.write('Alijon Valiyev\n')
+    fayl.write('2000')
+1 usul:
+	file = open("file.txt","r") - faylni oqish uchun ochadi, "r" ni orniga "w", "a" parametrlarni yuborsa boladi. Bu ochish uslubi faylni butunlay ochib qoyadi toki biz file.close() metodini chaqirmagunimizcha. Tavsiya qilinmaydi.
+	
+2 usul:
+	with open("file.txt") as file:
+		pi = file.read()
+	
+	bu usulda ham "file.txt" dan kegin "w","r","a" parametrlarini qollash mumkun. Bu usul faylni ishlatkan da song uni avtomat tarzda yopib qoyadi. Faylga shikast yetkizmaydi. 
+	
+faylnomi = 'ustozlar.txt'# ochilayotgan (yaratilayotgan) fayl nomi
+with open(faylnomi,'w') as fayl:
+    fayl.write('anvar narzullaev') # faylga yozilayotgan ma'lumot
+	
+	
+										File ga narsa ezmokchi bolsak u albatta srting bolishi shart. 
+
+pi = pi.rstrip() # qator ohiridagi bo'shliqlarni olib tashlaymiz
+
+
+Papka ichidagi fayllarni ochish uchun faylga olib boruvchi yolni yozib qoishimiz kerak. "data/data/text.file"
+
+Windowsda papkalar orasida "\" belgisi ishlatilsada, Pythonda "/" belgisini ishlataveramiz. Agar \ belgisini ishlatishni istasangiz, bu belgini 2 marta yozing: C:\\python\\darslar\\data
+
+
+															File ni qatorma qator oqish:
+	1 usul:
+filename = "data/text.txt"
+with open (filename) as file:
+	for line in file:
+		print(line)
+		
+	2 usul:
+with open(f"data/file.txt"):
+	talabalar = file.readlines() 	- metodi yordamida
+print(talabalar)	
+
+talabalar = [talaba.rstrip() for talaba in talabalar]
+
+															Pickle file ga yozish
+															obyekt ni file ga yozish
+															"wb" - write binary
+import pickle
+
+talaba1 = {'ism':'hasan', 'familiya':'husanov', 'tyil':2003, 'kurs': 2}
+talaba2 = {'ism':'alijon', 'familiya':'valiyev', 'tyil':2004, 'kurs': 1}
+
+with open('info','wb') as file:
+    pickle.dump(talaba1,file)
+    pickle.dump(talaba2,file)
+    
+    										!!!!!! bu faylni oqiyotkanda ham shu ketma ketlikda oqish kerak
+    											har bir obyektni alohida yozish tavsiya qilinadi
+    
+															PICKLE FAYLDAN O'QISH
+															"rb"- read binary
+
+with open('info','rb') as file:
+    talaba1 = pickle.load(file)
+    talaba2 = pickle.load(file)
+

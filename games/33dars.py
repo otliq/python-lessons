@@ -59,8 +59,8 @@ class Student(User):
 
 class Subject():
     """Creating class for Subject"""
-    def __init__(self,subject):
-        self.student = subject
+    def __init__(self,student):
+        self.student = student
         self.students_list = []
 
     def add_student(self,student):
@@ -77,20 +77,18 @@ class Subject():
 
     def __call__(self, *args):
         """Calls list of Students"""
-        return [x for x in self.students_list]
+        return [student for student in self.students_list]
 
     def __len__(self):
         """Returns back the length of name"""
         return len(self.student.name)
 
-user1 = User("name","last_name",2003)
-user2 = User("_","_",2001)
-user3 = User("_","_",1997)
+user1 = User("Muhammadzoir","Sherboboev",2003)
+user2 = User("Muhammadqodir","Sherboboev",2001)
+user3 = User("Muhammadali","Sherboboev",1997)
 
 student1 = Student(user1.lname,user1.name,user1.born,"World Economy")
 student2 = Student(user2.lname,user2.name,user2.born,"Electrician")
 student3 = Student(user3.lname,user3.name,user3.born,"Timber industry")
 
-fizika = Subject("fizika")
-
-fizika.add_student(student1)
+user1.get_rang()
